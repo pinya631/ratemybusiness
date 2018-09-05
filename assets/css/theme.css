@@ -1,0 +1,39 @@
+/*
+* Theme File for Rate My Business
+* Created by: Andrey Alda
+*/
+
+/* Form - Registration */
+input {
+    width: 100%;
+    padding: 5px;
+	font-size:16px;
+}
+
+label {
+    font-size: 16px;
+    color: #000;
+    margin-top: 5px;
+	font-weight:bold;
+}
+
+.error-msg {
+    margin-bottom: 10px;
+    min-height: 20px;
+}
+
+.error-msg p{
+	color:red;
+	font-size:16px;
+    margin-bottom: 0px;
+}
+
+input[type="submit"] {
+	font-size:30px;
+    font-weight: bold;
+    padding: 20px 10px;
+    margin-top: 10px;
+    background: #ff0;
+    border: 0;
+    text-transform: uppercase;
+}
