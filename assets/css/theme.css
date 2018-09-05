@@ -3,6 +3,40 @@
 * Created by: Andrey Alda
 */
 
+/* Header */
+header{
+	background:#2eabae;
+}
+
+.logo{
+	padding:40px 20px 50px;
+}
+
+/* Navigation */
+
+nav{
+	background: #176383;
+	font-size: 
+}
+
+ul.main-navigation{
+	margin:0;
+	padding:20px 0 20px;
+	list-style-type:none;
+}
+
+.main-navigation li > a{
+	color:#E9ECCF;
+}
+
+.main-navigation li{
+	margin-right:50px;
+	display:inline;
+}
+
+.main-navigation a{
+	font-size:24px;
+}
 /* Form - Registration */
 input {
     width: 100%;
