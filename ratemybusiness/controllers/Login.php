@@ -1,5 +1,5 @@
 <?php
-class Register extends CI_Controller {
+class Login extends CI_Controller {
 
 	public function __construct()
 	{
@@ -8,17 +8,16 @@ class Register extends CI_Controller {
 	}
 
 	public function index(){
-		$this->load->model('registration_model');
+		//$this->load->model('registration_model');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		
 		/* Shows the registration page */
 		
 		/* Sets form validation rules */
-		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.user_email]',
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.user_email',
 			array(
 				'required'=>'Please provide the %s.',
-				'valid_email'=>'Please provide the %s.',				
 				'is_unique'=>'The email is already registered to the system.'			
 				)
 			);
@@ -41,14 +40,13 @@ class Register extends CI_Controller {
 
 		/* Run form validation and submit */
 		if ($this->form_validation->run() === TRUE){
-			//$this->registration_model->insert_company();
-			$this->registration_model->register_contact();
+			//$this->registration_model->register_contact();
 			return redirect('admin');
 		}
 		
-		$data['title'] = 'Register';		
+		$data['title'] = 'Login';		
 		$this->load->view('templates/header', $data);
-		$this->load->view('register/index', $data);
+		$this->load->view('login/index', $data);
 		$this->load->view('templates/footer');		
 				
 	}
