@@ -11,6 +11,7 @@ class Register extends CI_Controller {
 		$this->load->model('registration_model');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
+		$this->load->library('session');
 		
 		/* Shows the registration page */
 		
@@ -41,8 +42,13 @@ class Register extends CI_Controller {
 
 		/* Run form validation and submit */
 		if ($this->form_validation->run() === TRUE){
-			//$this->registration_model->insert_company();
 			$this->registration_model->register_contact();
+			$newdata = array(
+					'email'  => $this->input->post('email',TRUE),
+					'logged_in' => TRUE
+					);
+					
+			$this->session->set_userdata($newdata);	
 			return redirect('admin');
 		}
 		

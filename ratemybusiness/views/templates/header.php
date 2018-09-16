@@ -1,4 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +35,7 @@
 		<ul class="main-navigation">
 			<li class="menu-item"><a href="<?php echo base_url();?>">Home</a></li>
 			<li class="menu-item"><a href="<?php echo base_url().'about'; ?>">About</a></li>	
+			<li class="menu-item"><a href="<?php echo base_url().'logout'; ?>">logout</a></li>	
 		</ul>
 				</div>
 			</div>
