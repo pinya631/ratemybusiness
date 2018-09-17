@@ -18,7 +18,7 @@
 				<div class="col-6">
 					<div class="logo">
 						<a href="<?php echo base_url(); ?>">
-						<img src = "<?php echo base_url()."assets/images/rate-my-business.png"; ?>" width=200 alt="rate my business">
+						<img src = "<?php echo base_url()."assets/images/rate-my-business.png"; ?>" width=300 alt="rate my business">
 						</a>					
 					</div>
 				</div>

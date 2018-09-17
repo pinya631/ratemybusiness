@@ -16,6 +16,22 @@ header{
 	background:#2eabae;
 }
 
+header.alt{
+	background:white;
+}
+
+header.alt .box-type{
+	border: 1px solid #000;
+	background: #2eabae;
+	margin-top:40px;
+	-webkit-border-top-left-radius: 30px;
+	-webkit-border-top-right-radius: 30px;
+	-moz-border-radius-topleft: 30px;
+	-moz-border-radius-topright: 30px;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+}
+
 .logo{
 	padding:40px 20px 50px;
 }
@@ -121,21 +137,34 @@ label {
     min-height: 20px;
 }
 
-.error-msg p{
+.error p {
+	text-align:center;
+}
+
+.error-msg p, .error p{
 	color:red;
 	font-size:16px;
     margin-bottom: 0px;
 }
 
 input[type="submit"] {
-	font-size:30px;
+	font-size:24px;
     font-weight: bold;
-    padding: 20px 10px;
+    padding: 10px 10px;
     margin-top: 10px;
     background: #ff0;
     border: 0;
     text-transform: uppercase;
 }
+/* Login Page*/
+section .box-type{
+	border-left:1px solid #000;
+	border-right:1px solid #000;	
+	padding: 40px 20px;
+
+}
+
+
 
 /* footer */
 footer{
@@ -143,8 +172,28 @@ footer{
 	color:#ffffff;
 	border-top:1px solid #4F5A60;
 }
+
+footer.alt{
+	background: white;
+	color:#ffffff;
+	border-top:none;
+}
+
+footer.alt .box-type{
+	background:#000;
+	border:1px solid #000;
+	-webkit-border-bottom-right-radius: 30px;
+	-webkit-border-bottom-left-radius: 30px;
+	-moz-border-radius-bottomright: 30px;
+	-moz-border-radius-bottomleft: 30px;
+	border-bottom-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+}
 	
 /* copyright */
+footer.alt .box-type .copyright{
+	text-align: center;
+}
 .copyright {
 	text-align: right;
 	font-size: 11px;

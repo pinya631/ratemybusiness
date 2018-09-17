@@ -36,6 +36,8 @@ class Login extends CI_Controller {
 					
 				$this->session->set_userdata($newdata);	
 				return redirect('admin');
+			}else{
+				$data['err_msg'] = 'the email and password is incorrect.';
 			}
 		}
 		

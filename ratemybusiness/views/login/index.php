@@ -10,19 +10,16 @@
 	<link rel="stylesheet" href="http://localhost/ratemybusiness/assets/bootstrap-4.1.3/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="http://localhost/ratemybusiness/assets/css/theme.css" />
 </head>
-<body>
-	<header>
+<body class="alt">
+	<header class="alt">
 		<div class = "container">
 			<div class="row">
-				<div class="col-6">
+				<div class="col-md-4 offset-md-4 box-type">
 					<div class="logo">
 						<a href="http://localhost/ratemybusiness/">
-						<img src = "http://localhost/ratemybusiness/assets/images/rate-my-business.png" width=200 alt="rate my business">
+						<img src = "http://localhost/ratemybusiness/assets/images/rate-my-business.png" width=300 alt="rate my business">
 						</a>					
 					</div>
-				</div>
-				<div class="col-6">
-					test
 				</div>
 			</div>
 		</div>
@@ -30,8 +27,8 @@
 <section>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 offset-md-4">
-				<h2>Login</h2>
+			<div class="col-md-4 offset-md-4 box-type">
+				<div class="error"><p><?php (isset($err_msg) ? print $err_msg : "");  ?></p></div>
 				<?php echo form_open('login'); ?>
 
 					<label for="title">Email</label>
@@ -49,10 +46,10 @@
 	</div>
 	</div>
 </section>
-	<footer>
+	<footer  class="alt">
 		<div class = "container">
 				<div class="row">
-					<div class="col-12">
+					<div class="col-md-4 offset-md-4 box-type">
 						<p class="copyright">Page rendered in <strong>0.0315</strong> seconds. CodeIgniter Version <strong>3.1.9</strong></p>
 					</div>
 				</div>
