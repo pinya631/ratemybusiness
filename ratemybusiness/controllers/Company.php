@@ -7,9 +7,13 @@ class Company extends CI_Controller {
 	{
 			parent::__construct();
 			$this->load->model('company_model');
+			$this->load->model('review_model');
 			$this->load->helper('url_helper');
+			$this->load->helper('form');
+			$this->load->library('form_validation');
 	}
 		
+	/* returns the profile and ratings for a single company */
 	public function view($company_id = NULL){
 			$data['company'] = $this->company_model->get_companies($company_id);
 
@@ -18,6 +22,25 @@ class Company extends CI_Controller {
 					show_404();
 			}
 
+			/* Sets form validation rules */
+			$this->form_validation->set_rules('email', 'Email', 'required|valid_email',
+				array(
+					'required'=>'Please provide the %s.',
+					'valid_email'=>'Please provide the %s.',							
+					)
+				);
+			$this->form_validation->set_rules('firstname', 'First Name', 'required|alpha');
+			$this->form_validation->set_rules('lastname', 'Last Name', 'required|alpha');
+			$this->form_validation->set_rules('rating', 'Rating', 'required', 
+				array('required'=>"Please rate the Company's performance") 
+				);
+			$this->form_validation->set_rules('comment', 'Comment', 'required');
+
+			/* Run form validation and submit */
+			if ($this->form_validation->run() === TRUE){
+				$this->review_model->add_review($company_id);
+			}
+			
 			$data['company_name'] = $data['company']['company_name'];
 
 			$this->load->view('templates/header', $data);

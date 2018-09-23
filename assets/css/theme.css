@@ -163,10 +163,20 @@ section .box-type{
 	padding: 40px 20px;
 
 }
+/* Reviews Page*/
+input[type="radio"] {
+    float: left;
+    width: 30px;
+    margin-top: 10px;
+}
 
+textarea#comment {
+    float: left;
+    display: block;
+    width: 100%;
+}
 
-
-/* footer */
+/* Footer */
 footer{
 	background: #30373A;
 	color:#ffffff;

@@ -10,18 +10,23 @@
 			<label for="title">Email</label>
 			<input type="email" name="email" />
 			<div class ="error-msg"><?php echo form_error('email'); ?></div>
+			
+			<div class="row">
+			  <div class="col-md-6">
+							<label for="title">First Name</label>
+							<input type="input" name="firstname" />
+							<div class ="error-msg"><?php echo form_error('firstname'); ?></div>
+			  </div>
+			  <div class="col-md-6">
+							<label for="title">Last Name</label>
+							<input type="input" name="lastname" />
+							<div class ="error-msg"><?php echo form_error('lastname'); ?></div>
+			  </div>
+			</div>
 
 			<label for="title">Password</label>
 			<input type="password" name="password" />
 			<div class ="error-msg"><?php echo form_error('password'); ?></div>
-
-			<label for="title">First Name</label>
-			<input type="input" name="firstname" />
-			<div class ="error-msg"><?php echo form_error('firstname'); ?></div>
-
-			<label for="title">Last Name</label>
-			<input type="input" name="lastname" />
-			<div class ="error-msg"><?php echo form_error('lastname'); ?></div>
 
 			<label for="title">Company</label>
 			<input type="input" name="company" />
