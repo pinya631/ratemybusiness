@@ -54,6 +54,7 @@ $route['logout'] = 'logout';
 $route['admin'] = 'admin';
 $route['register'] = 'register';
 $route['login'] = 'login';
+$route['company/submission'] = 'company/submission';
 $route['company/(:any)'] = 'company/view/$1';
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages';

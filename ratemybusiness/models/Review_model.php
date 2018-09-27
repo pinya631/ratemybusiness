@@ -33,7 +33,6 @@ class Review_model extends CI_Model {
 		$query = $this->db->get_where('reviewers', $data);
 		
 		if(!empty($query->result())){
-			var_dump($query);
 			
 			foreach ($query->result() as $row)
 				{
@@ -59,9 +58,28 @@ class Review_model extends CI_Model {
 	/* Register the contact */
 	public function add_review($company_id = NULL){
 		$this->insert_review();
-		
 		$this->insert_reviewer();
 		$this->insert_user_review($company_id);
+	}
+	
+	
+	/* Returns the reviews for the company 
+	Query: SELECT * FROM ref_company_reviews 
+	INNER JOIN reviews ON ref_company_reviews.rcr_rev_id = reviews.review_id 
+	INNER JOIN reviewers ON ref_company_reviews.rcr_reviewer_id = reviewers.reviewer_id 
+	WHERE ref_company_reviews.rcr_company_id = "INSERT COMPANY ID HERE" 
+	ORDER BY ref_company_reviews.rcr_id
+	*/
+
+	public function get_reviews($company_id){
+		$this->db->select('*');
+		$this->db->from('ref_company_reviews');
+		$this->db->join('reviews', 'ref_company_reviews.rcr_rev_id = reviews.review_id');
+		$this->db->join('reviewers', 'ref_company_reviews.rcr_reviewer_id = reviewers.reviewer_id');
+		$this->db->where('ref_company_reviews.rcr_company_id', $company_id);
+		$this->db->order_by('ref_company_reviews.rcr_id', 'ASC');
+		$query = $this->db->get();
+		return $query->result_array();
 	}
 	
 }

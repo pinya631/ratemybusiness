@@ -5,6 +5,7 @@ class Company_model extends CI_Model {
 			$this->load->database();
 	}
 	
+	/* Returns company data */
 	public function get_companies($company_id = FALSE){
 		
 		if ($company_id === FALSE){

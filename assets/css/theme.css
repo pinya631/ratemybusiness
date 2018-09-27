@@ -62,6 +62,16 @@ ul.main-navigation{
 	font-size:24px;
 }
 
+/* Section Default */
+section {
+	padding-top:50px;
+	padding-bottom:50px;
+}
+section.alt {
+	padding-top:0px;
+	padding-bottom:0px;
+}
+
 /* Homepage */
 
 .score-section {
@@ -161,8 +171,8 @@ section .box-type{
 	border-left:1px solid #000;
 	border-right:1px solid #000;	
 	padding: 40px 20px;
-
 }
+
 /* Reviews Page*/
 input[type="radio"] {
     float: left;

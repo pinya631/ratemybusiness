@@ -10,6 +10,8 @@
 	<title>Rate My Business</title>
 	<link rel="stylesheet" href="<?php echo base_url()."assets/bootstrap-4.1.3/css/bootstrap.min.css"; ?>" />
 	<link rel="stylesheet" href="<?php echo base_url()."assets/css/theme.css"; ?>" />
+	<script src="<?php echo base_url()."assets/js/jquery-3.3.1.min.js"; ?>"></script>
+
 </head>
 <body>
 	<header>

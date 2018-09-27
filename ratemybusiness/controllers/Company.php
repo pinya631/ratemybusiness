@@ -15,13 +15,28 @@ class Company extends CI_Controller {
 		
 	/* returns the profile and ratings for a single company */
 	public function view($company_id = NULL){
-			$data['company'] = $this->company_model->get_companies($company_id);
+		
+		/* Get company details */
+		$data['company'] = $this->company_model->get_companies($company_id);
 
-			if (empty($data['company']))
-			{
-					show_404();
-			}
-
+		if (empty($data['company']))
+		{
+				show_404();
+		}
+		
+		$data['company_name'] = $data['company']['company_name'];
+		
+		
+		/* Get review details */
+		$data['reviews'] = $this->review_model->get_reviews($company_id);
+		
+		
+		$this->load->view('templates/header', $data);
+		$this->load->view('company/view', $data);
+		$this->load->view('templates/footer');
+	}
+	
+	public function submission(){
 			/* Sets form validation rules */
 			$this->form_validation->set_rules('email', 'Email', 'required|valid_email',
 				array(
@@ -40,11 +55,7 @@ class Company extends CI_Controller {
 			if ($this->form_validation->run() === TRUE){
 				$this->review_model->add_review($company_id);
 			}
-			
-			$data['company_name'] = $data['company']['company_name'];
 
-			$this->load->view('templates/header', $data);
-			$this->load->view('company/view', $data);
-			$this->load->view('templates/footer');
 	}
+	
 }
