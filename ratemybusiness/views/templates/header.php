@@ -36,8 +36,16 @@
 				<div class="col-12">
 		<ul class="main-navigation">
 			<li class="menu-item"><a href="<?php echo base_url();?>">Home</a></li>
-			<li class="menu-item"><a href="<?php echo base_url().'about'; ?>">About</a></li>	
-			<li class="menu-item"><a href="<?php echo base_url().'logout'; ?>">logout</a></li>	
+			<li class="menu-item"><a href="<?php echo base_url().'about'; ?>">About</a></li>
+			
+			<?php				
+				
+				if(!isset($_SESSION['logged_in'])){
+					echo '	<li class="menu-item"><a href="'.base_url().'login">Login</a></li>';
+				}else{
+					echo '	<li class="menu-item"><a href="'.base_url().'logout">Logout</a></li>';					
+				}
+			?>
 		</ul>
 				</div>
 			</div>
