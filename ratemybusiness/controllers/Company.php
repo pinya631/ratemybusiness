@@ -18,6 +18,24 @@ class Company extends CI_Controller {
 		
 		/* Get company details */
 		$data['company'] = $this->company_model->get_companies($company_id);
+		
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email',
+			array(
+				'required'=>'Please provide the %s.',
+				'valid_email'=>'Please provide the %s.',							
+				)
+			);
+		$this->form_validation->set_rules('firstname', 'First Name', 'required|alpha');
+		$this->form_validation->set_rules('lastname', 'Last Name', 'required|alpha');
+		$this->form_validation->set_rules('rating', 'Rating', 'required', 
+			array('required'=>"Please rate the Company's performance") 
+			);
+		$this->form_validation->set_rules('comment', 'Comment', 'required');
+
+		/* Run form validation and submit */
+		if ($this->form_validation->run() === TRUE){
+			$this->review_model->add_review($company_id);
+		}
 
 		if (empty($data['company']))
 		{
@@ -30,32 +48,32 @@ class Company extends CI_Controller {
 		/* Get review details */
 		$data['reviews'] = $this->review_model->get_reviews($company_id);
 		
-		
 		$this->load->view('templates/header', $data);
 		$this->load->view('company/view', $data);
 		$this->load->view('templates/footer');
 	}
-	
+	/*
 	public function submission(){
-			/* Sets form validation rules */
-			$this->form_validation->set_rules('email', 'Email', 'required|valid_email',
-				array(
-					'required'=>'Please provide the %s.',
-					'valid_email'=>'Please provide the %s.',							
-					)
-				);
-			$this->form_validation->set_rules('firstname', 'First Name', 'required|alpha');
-			$this->form_validation->set_rules('lastname', 'Last Name', 'required|alpha');
-			$this->form_validation->set_rules('rating', 'Rating', 'required', 
-				array('required'=>"Please rate the Company's performance") 
-				);
-			$this->form_validation->set_rules('comment', 'Comment', 'required');
+			/* Sets form validation rules 
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email',
+			array(
+				'required'=>'Please provide the %s.',
+				'valid_email'=>'Please provide the %s.',							
+				)
+			);
+		$this->form_validation->set_rules('firstname', 'First Name', 'required|alpha');
+		$this->form_validation->set_rules('lastname', 'Last Name', 'required|alpha');
+		$this->form_validation->set_rules('rating', 'Rating', 'required', 
+			array('required'=>"Please rate the Company's performance") 
+			);
+		$this->form_validation->set_rules('comment', 'Comment', 'required');
 
-			/* Run form validation and submit */
-			if ($this->form_validation->run() === TRUE){
-				$this->review_model->add_review($company_id);
-			}
+		/* Run form validation and submit 
+		if ($this->form_validation->run() === TRUE){
+			//$this->review_model->add_review($company_id);
+		}
 
-	}
+
+	}*/
 	
 }
