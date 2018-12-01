@@ -4,7 +4,7 @@
 			<div class="col-md-7">
 				<div class="row">
 				  <div class="col-md-6">
-					<img id="img-<?php echo $company['company_id']; ?>" class="company-logo" alt="company logo" src ="<?php echo base_url()."assets/uploads/automation_agency.png"; ?>">
+					<img id="img-<?php echo $company['company_id']; ?>" class="company-logo" alt="company logo" src ="<?php echo base_url()."uploads/company-img.png"; ?>">
 				  </div>
 				</div>
 				<div class="row">
@@ -102,7 +102,7 @@
 	</div>
 	</div>
 </section>
-<script>
+<script>/*
     $(document).ready(function(){
         $('form.review-form').on('submit', function(form){
             //form.preventDefault();
@@ -111,6 +111,6 @@
 				//$('div.jsError').html(data);
             });
         });
-    });
+    });*/
 </script>
 

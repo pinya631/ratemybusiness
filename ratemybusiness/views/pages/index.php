@@ -16,7 +16,7 @@
 				<?php foreach ($companies as $company): ?>
 				
 				<div class ="company-profile">
-					<img id="img-<?php echo $company['company_id']; ?>" class="company-logo" alt="company logo" src ="<?php echo base_url()."assets/uploads/automation_agency.png"; ?>">
+					<img id="img-<?php echo $company['company_id']; ?>" class="company-logo" alt="company logo" src ="<?php echo base_url()."uploads/company-img.png"; ?>">
 					<div class="score-section">
 						<img class="ratings-star" src ="<?php echo base_url()."assets/images/star.png"; ?>" alt="star ratings">
 						<h2 class="score">4.2</h2>
