@@ -53,6 +53,7 @@ $route['admin/(:any)'] = 'admin/view/$1';
 $route['logout'] = 'logout';
 $route['admin'] = 'admin';
 $route['register'] = 'register';
+$route['register/superuser'] = 'register/superuser';
 $route['login'] = 'login';
 $route['company/submission'] = 'company/submission';
 $route['company/(:any)'] = 'company/view/$1';

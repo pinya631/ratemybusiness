@@ -42,7 +42,7 @@ class Register extends CI_Controller {
 
 		/* Run form validation and submit */
 		if ($this->form_validation->run() === TRUE){
-			$this->registration_model->register_contact();
+			$this->registration_model->register_contact(FALSE);
 			$newdata = array(
 					'email'  => $this->input->post('email',TRUE),
 					'logged_in' => TRUE
@@ -58,4 +58,45 @@ class Register extends CI_Controller {
 		$this->load->view('templates/footer');		
 				
 	}
+	
+	public function superuser(){
+		$this->load->model('registration_model');
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->load->library('session');
+		
+		/* Shows the registration page */
+		
+		/* Sets form validation rules */
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.user_email]',
+			array(
+				'required'=>'Please provide the %s.',
+				'valid_email'=>'Please provide the %s.',				
+				'is_unique'=>'The email is already registered to the system.'			
+				)
+			);
+		$this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
+		$this->form_validation->set_rules('firstname', 'First Name', 'required|alpha');
+		$this->form_validation->set_rules('lastname', 'Last Name', 'required|alpha');
+		
+		/* Run form validation and submit */
+		if ($this->form_validation->run() === TRUE){
+			$this->registration_model->register_contact(TRUE);
+			$newdata = array(
+					'email'  => $this->input->post('email',TRUE),
+					'logged_in' => TRUE
+					);
+					
+			$this->session->set_userdata($newdata);	
+			return redirect('admin');
+		}
+		
+		$data['title'] = 'Register Admin';		
+		$this->load->view('templates/header', $data);
+		$this->load->view('register/superuser', $data);
+		$this->load->view('templates/footer');		
+				
+	}
+	
+	
 }
