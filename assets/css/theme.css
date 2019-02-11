@@ -12,7 +12,9 @@ body{
 }
 
 p.alternative-font-style{
-	font-family:'Lato', sans-serif;
+	font-family: 'Raleway', sans-serif; 
+	font-size:30px; 
+	color: #2eabae
 }
 
 /* 
@@ -203,6 +205,13 @@ input[type="submit"]:hover,button:hover {
 
 }
 /* Login Page*/
+.custom-login-icon {
+    color: #dad8d8 !important;
+    position: absolute;
+    right: 35px;
+    margin-top: 10px;
+}
+
 section .box-type{
 	padding: 40px 20px;
 	background:#ffffff;
@@ -239,6 +248,7 @@ footer{
 	background: #30373A;
 	color:#ffffff;
 	border-top:1px solid #4F5A60;
+	
 }
 
 footer.alt{

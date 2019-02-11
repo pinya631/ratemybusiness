@@ -22,22 +22,33 @@ class Login extends CI_Controller {
 		$this->form_validation->set_rules('email', 'email', 'required');
 		$this->form_validation->set_rules('password', 'password', 'required');
 
-		/* Run form validation and submit */
+		/* Runs form validation and submit */
 		if ($this->form_validation->run() === TRUE){
 			$data['user_info'] = $this->login_model->read_login_information($this->input->post('email',TRUE));
 			
 			/* verify the password and creates SESSION variables */
 			if(password_verify($this->input->post('password',TRUE),$data['user_info']['user_password'])){
 				
-				$newdata = array(
+				if($this->input->post('remember') != NULL){
+					$newdata = array(
 					'email'  => $this->input->post('email',TRUE),
 					'logged_in' => TRUE
 					);
 					
-				$this->session->set_userdata($newdata);	
-				return redirect('admin');
+					$this->session->set_userdata($newdata);	
+				}
+
+					$newdata = array(
+					'email'  => $this->input->post('email',TRUE),
+					'logged_in' => TRUE
+					);
+					
+					$this->session->set_userdata($newdata);	
+				
+				
+				//return redirect('register');
 			}else{
-				$data['err_msg'] = 'the email and password is incorrect.';
+				$data['err_msg'] = 'you access is invalid.';
 			}
 		}
 		
